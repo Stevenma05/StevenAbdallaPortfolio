@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steven Abdalla | Software Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --accent: #6366f1;
+        --accent-glow: rgba(99, 102, 241, 0.2);
+        --bg: #0f172a;
+        --card-bg: rgba(30, 41, 59, 0.7);
+        --text-main: #f8fafc;
+        --text-dim: #94a3b8;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text-main);
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* --- Background Animation --- */
+      .blob {
+        position: fixed;
+        width: 450px;
+        height: 450px;
+        background: var(--accent);
+        filter: blur(130px);
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.12;
+        animation: float 25s infinite alternate;
+      }
+
+      @keyframes float {
+        from {
+          transform: translate(-5%, -5%);
+        }
+        to {
+          transform: translate(15%, 15%);
+        }
+      }
+
+      /* --- Navigation --- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 10%;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(12px);
+        position: fixed;
+        width: 80%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: -1px;
+        color: var(--text-main);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .nav-links a {
+        color: var(--text-main);
+        text-decoration: none;
+        margin-left: 2.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      /* --- Hero Section --- */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10%;
+      }
+
+      .hero span {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .hero h1 {
+        font-size: 4.8rem;
+        margin: 0.5rem 0;
+        letter-spacing: -3px;
+        line-height: 1.1;
+      }
+      .hero p {
+        color: var(--text-dim);
+        max-width: 620px;
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+      }
+
+      /* --- Layout & Typography --- */
+      section {
+        padding: 8rem 10% 4rem;
+      }
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        width: 60px;
+        height: 5px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      /* --- Card System --- */
+      .card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        margin-bottom: 2rem;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent);
+        box-shadow: 0 15px 40px var(--accent-glow);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 2.5rem;
+      }
+
+      /* --- Skill Tags --- */
+      .skill-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .tag {
+        background: rgba(99, 102, 241, 0.12);
+        color: #a5b4fc;
+        padding: 0.5rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid rgba(99, 102, 241, 0.25);
+      }
+
+      /* --- Buttons --- */
+      .primary-btn {
+        background: var(--accent);
+        color: white;
+        padding: 1.1rem 2.5rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-block;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      }
+      .primary-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px var(--accent);
+      }
+
+      .project-link {
+        color: var(--text-main);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 1.5rem;
+        transition: 0.3s;
+      }
+      .project-link:hover {
+        color: var(--accent);
+        padding-left: 5px;
+      }
+
+      /* --- Contact Box --- */
+      .contact-box {
+        text-align: center;
+        background: linear-gradient(
+          145deg,
+          rgba(30, 41, 59, 0.8),
+          rgba(15, 23, 42, 0.9)
+        );
+        padding: 5rem 2rem;
+        border-radius: 30px;
+        border: 1px solid rgba(99, 102, 241, 0.2);
+      }
+      .contact-box h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+      .contact-box p {
+        color: var(--text-dim);
+        margin-bottom: 3rem;
+        max-width: 500px;
+        margin-inline: auto;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 900px) {
+        .hero h1 {
+          font-size: 3.2rem;
+        }
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          width: 95%;
+          padding: 1rem 4%;
+        }
+      }
+    </style>
+  </head>
+  <body id="#top">
+    <div class="blob"></div>
+
+    <nav>
+      <a href="#top" class="logo">SA.</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <span>Hi, my name is</span>
+      <h1>Steven Abdalla.</h1>
+      <p>
+        Computer Science student at USF, building scalable software solutions. I
+        focus on the intersection of Machine Learning and secure system
+        development.
+      </p>
+      <div>
+        <a href="#projects" class="primary-btn">Explore My Work</a>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">Education</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 0.5rem">
+            University of South Florida
+          </h3>
+          <div style="margin-bottom: 1.5rem">
+            <h4 style="margin: 0">M.S. in Computer Science</h4>
+            <small style="color: var(--text-dim)">Expected May 2027</small>
+          </div>
+          <div>
+            <h4 style="margin: 0">B.S. in Computer Science</h4>
+            <small style="color: var(--text-dim)">Expected Dec 2026</small>
+          </div>
+          <p style="margin-top: 1.2rem; font-weight: 600">GPA: 3.77</p>
+        </div>
+        <div>
+          <h3>Technical Toolkit</h3>
+          <div class="skill-box">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">C# / C++</span>
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Socket.io</span>
+            <span class="tag">Git/GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+
+      <div class="card">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <h3 style="margin: 0">Software Developer Intern</h3>
+            <h4 style="color: var(--accent); margin: 0.3rem 0">
+              Cisco Systems / Emircom LLC
+            </h4>
+          </div>
+          <small style="color: var(--text-dim)">May 2025 — July 2025</small>
+        </div>
+        <ul
+          style="
+            margin-top: 1.5rem;
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+          "
+        >
+          <li style="margin-bottom: 0.5rem">
+            Maintained software systems supporting Emircom's regional services
+            in Dubai.
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            Collaborated within an agile team of 15 to customize client
+            features.
+          </li>
+          <li>
+            Worked alongside cross-functional network and security engineering
+            teams.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <h3 style="margin: 0">Sports Programs Supervisor</h3>
+            <h4 style="color: var(--accent); margin: 0.3rem 0">
+              USF Recreation & Wellness
+            </h4>
+          </div>
+          <small style="color: var(--text-dim)">Jan 2024 — Present</small>
+        </div>
+        <ul
+          style="
+            margin-top: 1.5rem;
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+          "
+        >
+          <li style="margin-bottom: 0.5rem">
+            Promoted respect and integrity among 20+ team members by emphasizing
+            sportsmanship.
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            Managed 10+ challenging situations with tact and empathy to ensure
+            smooth operations.
+          </li>
+          <li>
+            Coordinated medical assistance for 5+ injuries, implementing
+            effective safety procedures.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Selected Work</h2>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2rem;
+        "
+      >
+        <div class="card">
+          <h3>Real-Time Chat App</h3>
+          <p style="color: var(--text-dim); font-size: 0.95rem">
+            Full-stack messaging platform featuring instant connectivity via
+            Socket.io and secure MongoDB authentication.
+          </p>
+          <div class="skill-box" style="margin-top: 1rem">
+            <span class="tag">React</span> <span class="tag">Node</span>
+            <span class="tag">Socket.io</span>
+          </div>
+          <a
+            href="https://www.stevenabdalla.com"
+            target="_blank"
+            class="project-link"
+            >View Case Study →</a
+          >
+        </div>
+
+        <div class="card">
+          <h3>Diabetes Prediction ML</h3>
+          <p style="color: var(--text-dim); font-size: 0.95rem">
+            Scikit-learn model analyzing health metrics like BMI and glucose to
+            predict risks with 77% accuracy.
+          </p>
+          <div class="skill-box" style="margin-top: 1rem">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Tkinter</span>
+          </div>
+          <a href="#" class="project-link">GitHub Repository →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <h2>Let's Build Together</h2>
+        <p>
+          I'm currently looking for new challenges and software engineering
+          roles. Whether you have a question or just want to say hi, my inbox is
+          always open!
+        </p>
+        <a href="mailto:stevenmarcos1010@gmail.com" class="primary-btn"
+          >Email Me</a
+        >
+
+        <div style="margin-top: 2.5rem">
+          <a
+            href="https://linkedin.com/steven-abdalla"
+            target="_blank"
+            style="
+              color: var(--text-dim);
+              text-decoration: none;
+              font-size: 0.95rem;
+              margin: 0 15px;
+            "
+            >LinkedIn</a
+          >
+          <span style="color: rgba(255, 255, 255, 0.05)">|</span>
+          <a
+            href="https://github.com/stevenabdalla"
+            target="_blank"
+            style="
+              color: var(--text-dim);
+              text-decoration: none;
+              font-size: 0.95rem;
+              margin: 0 15px;
+            "
+            >GitHub</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 5rem 0;
+        color: var(--text-dim);
+        font-size: 0.85rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      "
+    >
+      <p>© 2026 Steven Abdalla. Tampa, FL.</p>
+    </footer>
+
+    <script>
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+    </script>
+  </body>
+</html>
