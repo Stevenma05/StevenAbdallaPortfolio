@@ -106,12 +106,26 @@
         font-weight: 600;
         font-size: 1.1rem;
       }
+
+      /* --- UPDATED ANIMATION: Bounce then Pause --- */
+      @keyframes bounceAndPause {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(15px); } /* Jump up quickly */
+        40% { transform: translateX(0); }     /* Land back down */
+        100% { transform: translateX(0); }    /* Stay still for rest of time */
+      }
+
       .hero h1 {
         font-size: 4.8rem;
         margin: 0.5rem 0;
         letter-spacing: -3px;
         line-height: 1.1;
+        
+        display: inline-block;
+        /* Animation runs for 4 seconds total: 0.8s bounce, 3.2s pause */
+        animation: bounceAndPause 4s ease-in-out infinite;
       }
+
       .hero p {
         color: var(--text-dim);
         max-width: 620px;
@@ -252,6 +266,7 @@
       <a href="#top" class="logo">SA.</a>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Work</a>
         <a href="#contact">Contact</a>
@@ -262,16 +277,50 @@
       <span>Hi, my name is</span>
       <h1>Steven Abdalla.</h1>
       <p>
-        Computer Science student at USF, building scalable software solutions. I
-        focus on the intersection of Machine Learning and secure system
-        development.
+        Computer Science student @ USF | Full Stack & ML Enthusiast | 
+        Prev Software Developer Intern @ Emircom LLC / Cisco Systems 
       </p>
       <div>
-        <a href="#projects" class="primary-btn">Explore My Work</a>
+        <a 
+          href="https://drive.google.com/file/d/1OP_wp0JTh3D7PCdkqQsh8WM7o6InzVDo/view?usp=sharing" 
+          class="primary-btn" 
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="event.stopPropagation()"
+        >
+          Resume ->
+        </a>
       </div>
     </header>
 
     <section id="about">
+      <h2 class="section-title">About Me!</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent); margin-bottom: 0.5rem">
+            I am Steven Abdalla!
+          </h3>
+            <p>Hello! My name is Steven Abdalla, and I am a Computer Science student with a strong passion for full-stack development, AI, and ML. I am dedicated to building intuitive and visually engaging user interfaces, continuously learning, and staying up to date with the latest technologies in the field.</p>
+            <p><stong>Fun Fact: </stong>I used to play professionally for my age group in Dubai.</p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <img 
+            src="MyImage.jpg" 
+            alt="Steven Abdalla" 
+            style="
+              width: 100%; 
+              height: 100%; 
+              object-fit: cover; 
+              border-radius: 20px; 
+              border: 1px solid rgba(255, 255, 255, 0.08);
+              max-height: 400px;
+            "
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
       <h2 class="section-title">Education</h2>
       <div class="grid-2">
         <div class="card">
@@ -482,9 +531,20 @@
     </footer>
 
     <script>
-      window.onbeforeunload = function () {
+      // FIXED SCRIPT: Manages scroll restoration and double-checks position on load
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      window.addEventListener('load', function() {
+        // Immediate scroll to top
         window.scrollTo(0, 0);
-      };
+        
+        // Secondary scroll to top to override any browser hash-jumping that happens after load
+        setTimeout(function() {
+          window.scrollTo(0, 0);
+        }, 10);
+      });
     </script>
   </body>
 </html>
