@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
       :root {
         --accent: #6366f1;
@@ -109,10 +113,18 @@
 
       /* --- UPDATED ANIMATION: Bounce then Pause --- */
       @keyframes bounceAndPause {
-        0% { transform: translateX(0); }
-        20% { transform: translateX(15px); } /* Jump up quickly */
-        40% { transform: translateX(0); }     /* Land back down */
-        100% { transform: translateX(0); }    /* Stay still for rest of time */
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(15px);
+        } /* Jump up quickly */
+        40% {
+          transform: translateX(0);
+        } /* Land back down */
+        100% {
+          transform: translateX(0);
+        } /* Stay still for rest of time */
       }
 
       .hero h1 {
@@ -120,7 +132,7 @@
         margin: 0.5rem 0;
         letter-spacing: -3px;
         line-height: 1.1;
-        
+
         display: inline-block;
         /* Animation runs for 4 seconds total: 0.8s bounce, 3.2s pause */
         animation: bounceAndPause 4s ease-in-out infinite;
@@ -208,6 +220,14 @@
         box-shadow: 0 8px 25px var(--accent);
       }
 
+      i {
+        transition: transform 0.2s ease;
+      }
+
+      i:hover {
+        transform: scale(1.5);
+      }
+
       .project-link {
         color: var(--text-main);
         text-decoration: none;
@@ -268,7 +288,7 @@
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Work</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -277,13 +297,13 @@
       <span>Hi, my name is</span>
       <h1>Steven Abdalla.</h1>
       <p>
-        Computer Science student @ USF | Full Stack & ML Enthusiast | 
-        Prev Software Developer Intern @ Emircom LLC / Cisco Systems 
+        Computer Science student @ USF | Full Stack & ML Enthusiast | Prev
+        Software Developer Intern @ Emircom LLC / Cisco Systems
       </p>
       <div>
-        <a 
-          href="https://drive.google.com/file/d/1OP_wp0JTh3D7PCdkqQsh8WM7o6InzVDo/view?usp=sharing" 
-          class="primary-btn" 
+        <a
+          href="https://drive.google.com/file/d/1OP_wp0JTh3D7PCdkqQsh8WM7o6InzVDo/view?usp=sharing"
+          class="primary-btn"
           target="_blank"
           rel="noopener noreferrer"
           onclick="event.stopPropagation()"
@@ -300,22 +320,33 @@
           <h3 style="color: var(--accent); margin-bottom: 0.5rem">
             I am Steven Abdalla!
           </h3>
-            <p>Hello! My name is Steven Abdalla, and I am a Computer Science student with a strong passion for full-stack development, AI, and ML. I am dedicated to building intuitive and visually engaging user interfaces, continuously learning, and staying up to date with the latest technologies in the field.</p>
-            <p><stong>Fun Fact: </stong>I used to play professionally for my age group in Dubai.</p>
+          <p>
+            Hello! I am a Computer Science student with a strong passion for
+            full-stack development, AI, and ML. I am dedicated to building
+            intuitive and visually engaging user interfaces, continuously
+            learning, and staying up to date with the latest technologies in the
+            field.
+          </p>
+          <p>
+            <stong>Fun Fact: </stong>I used to play professional soccer for my
+            age group in Dubai.
+          </p>
         </div>
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <img 
-            src="MyImage.jpg" 
-            alt="Steven Abdalla" 
+        <div
+          style="display: flex; align-items: center; justify-content: center"
+        >
+          <img
+            src="MyImage.jpg"
+            alt="Steven Abdalla"
             style="
-              width: 100%; 
-              height: 100%; 
-              object-fit: cover; 
-              border-radius: 20px; 
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 20px;
               border: 1px solid rgba(255, 255, 255, 0.08);
               max-height: 400px;
             "
-          >
+          />
         </div>
       </div>
     </section>
@@ -333,7 +364,7 @@
           </div>
           <div>
             <h4 style="margin: 0">B.S. in Computer Science</h4>
-            <small style="color: var(--text-dim)">Expected Dec 2026</small>
+            <small style="color: var(--text-dim)">Expected May 2026</small>
           </div>
           <p style="margin-top: 1.2rem; font-weight: 600">GPA: 3.77</p>
         </div>
@@ -342,12 +373,19 @@
           <div class="skill-box">
             <span class="tag">JavaScript</span>
             <span class="tag">Python</span>
-            <span class="tag">C# / C++</span>
+            <span class="tag">C#</span>
+            <span class="tag">C / C++</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">HTML / CSS</span>
             <span class="tag">React.js</span>
             <span class="tag">Node.js</span>
             <span class="tag">MongoDB</span>
             <span class="tag">Socket.io</span>
-            <span class="tag">Git/GitHub</span>
+            <span class="tag">Axios</span>
+            <span class="tag">API</span>
+            <span class="tag">Windows Forms</span>
+            <span class="tag">Visual Studio Code</span>
+            <span class="tag">Postman</span>
           </div>
         </div>
       </div>
@@ -433,10 +471,53 @@
           </li>
         </ul>
       </div>
+
+      <div class="card">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <h3 style="margin: 0">Youth Coding Mentor</h3>
+            <h4 style="color: var(--accent); margin: 0.3rem 0">
+              St. Mark Church
+            </h4>
+          </div>
+          <small style="color: var(--text-dim)">May 2021 — June 2021</small>
+        </div>
+        <ul
+          style="
+            margin-top: 1.5rem;
+            color: var(--text-dim);
+            padding-left: 1.2rem;
+          "
+        >
+          <li style="margin-bottom: 0.5rem">
+            Taught 20+ 6th graders JavaScript fundamentals on Code.org,
+            completing the course in 4 weeks.
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            Guided students in creating 1 final project, promoting hands-on
+            learning and problem-solving.
+          </li>
+          <li style="margin-bottom: 0.5rem">
+            Simplified 10+ programming concepts like variables and loops for
+            accessibility and engagement.
+          </li>
+          <li>
+            Fostered a supportive environment, with 90% of students showing
+            increased coding confidence by course end.
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section id="projects">
-      <h2 class="section-title">Selected Work</h2>
+      <h2 class="section-title">Projects</h2>
       <div
         style="
           display: grid;
@@ -450,12 +531,47 @@
             Full-stack messaging platform featuring instant connectivity via
             Socket.io and secure MongoDB authentication.
           </p>
+          <div class="skill-box" style="margin-top: 1rem; margin-bottom: 1rem">
+            <span class="tag">React.JS</span> <span class="tag">Node.JS</span>
+            <span class="tag">Socket.io</span> <span class="tag">MongoDB</span>
+          </div>
+          <small style="color: var(--text-dim); display: block"
+            >For test:
+          </small>
+          <small style="color: var(--text-dim); display: block"
+            >email: testme@test.com</small
+          >
+          <small style="color: var(--text-dim); display: block"
+            >password: testme</small
+          >
+          <a
+            href="https://github.com/Stevenma05/chat-app.git"
+            target="_blank"
+            class="project-link"
+            >Github →</a
+          >
+          <div></div>
+          <a
+            href="https://chat-app-h2l8.onrender.com"
+            target="_blank"
+            class="project-link"
+            >Test it out →</a
+          >
+        </div>
+
+        <div class="card">
+          <h3>Stock Analysis & Simulation Tool</h3>
+          <p style="color: var(--text-dim); font-size: 0.95rem">
+            WinForms-based stock analysis tool featuring real-time algorithmic
+            validation and interactive technical indicators on historical
+            datasets.
+          </p>
           <div class="skill-box" style="margin-top: 1rem">
-            <span class="tag">React</span> <span class="tag">Node</span>
-            <span class="tag">Socket.io</span>
+            <span class="tag">Windows Forms</span> <span class="tag">C#</span>
+            <span class="tag">.NET</span>
           </div>
           <a
-            href="https://www.stevenabdalla.com"
+            href="https://docs.google.com/document/d/1BKWnvKBV-ZIex-XT-vK3w1zQ_AmnHLiD/edit?usp=sharing&ouid=112836760574189050830&rtpof=true&sd=true"
             target="_blank"
             class="project-link"
             >View Case Study →</a
@@ -473,7 +589,19 @@
             <span class="tag">Machine Learning</span>
             <span class="tag">Tkinter</span>
           </div>
-          <a href="#" class="project-link">GitHub Repository →</a>
+          <a
+            target="_blank"
+            href="https://github.com/Stevenma05/Diabetes-ML.git"
+            class="project-link"
+            >GitHub →</a
+          >
+          <div></div>
+          <a
+            target="_blank"
+            href="https://drive.google.com/file/d/1L6mwxDuxpsM2zjmK3Xh8zuzbFhAaqW6L/view?usp=sharing"
+            class="project-link"
+            >Video Demo →</a
+          >
         </div>
       </div>
     </section>
@@ -490,30 +618,43 @@
           >Email Me</a
         >
 
-        <div style="margin-top: 2.5rem">
+        <div style="margin-top: 2.5rem; text-align: center">
           <a
-            href="https://linkedin.com/steven-abdalla"
+            href="https://www.linkedin.com/in/steven-abdalla-2b0727309"
             target="_blank"
             style="
               color: var(--text-dim);
               text-decoration: none;
-              font-size: 0.95rem;
+              font-size: 1.5rem; /* Increased size for icons */
               margin: 0 15px;
+              transition: color 0.2s;
             "
-            >LinkedIn</a
           >
-          <span style="color: rgba(255, 255, 255, 0.05)">|</span>
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <span
+            style="
+              color: rgba(255, 255, 255, 0.05);
+              font-size: 1.5rem;
+              vertical-align: middle;
+            "
+            >|</span
+          >
+
           <a
-            href="https://github.com/stevenabdalla"
+            href="https://github.com/Stevenma05"
             target="_blank"
             style="
               color: var(--text-dim);
               text-decoration: none;
-              font-size: 0.95rem;
+              font-size: 1.5rem; /* Increased size for icons */
               margin: 0 15px;
+              transition: color 0.2s;
             "
-            >GitHub</a
           >
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -532,16 +673,16 @@
 
     <script>
       // FIXED SCRIPT: Manages scroll restoration and double-checks position on load
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
       }
 
-      window.addEventListener('load', function() {
+      window.addEventListener("load", function () {
         // Immediate scroll to top
         window.scrollTo(0, 0);
-        
+
         // Secondary scroll to top to override any browser hash-jumping that happens after load
-        setTimeout(function() {
+        setTimeout(function () {
           window.scrollTo(0, 0);
         }, 10);
       });
